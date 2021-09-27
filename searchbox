@@ -12,24 +12,34 @@
     </style>
 </head>
 <body>
-    <h1> Search Box</h1>
-   <form id="form1" runat="server" action="https://www.google.com/search" method="GET">
-         <%--<form id="form2" runat="server" action="https://www.yahoo.com/search" method="GET">
-           <form id="form3" runat="server" action="https://www.duckduckgo.com/search" method="GET">--%>
-        <table class="auto-style1">
+    <h1> Search Box</h1> 
+   <form id="form1" runat="server">
+      <table class="auto-style1">
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" type="text" name="q" Width="145px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" type="text" name="TextBox1" Width="145px"></asp:TextBox>
                     <asp:Button ID="Button1" runat="server" Text="search" type="SUBMIT" value="Google Search " Width="74px" OnClick="Button1_Click" />
-                </td>
+                    //<iframe src="" width="100%" id="idIframe" onload="autoResize('idIframe');" ></iframe>     
+
+                    </td>
+
                 <td>&nbsp;</td>
             </tr>
-
-        </table>
-      </form>
+          </table>
+         </form>
 </body>
 </html>
+
+
+==================webform1.aspx.cs
+
+ protected void Button1_Click(object sender, EventArgs e)
+        {
+             string keyword = Request.Form["TextBox1"];
+             Response.Redirect("https://www.google.com/search?q=" + keyword);
+
+        }
