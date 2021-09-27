@@ -1,0 +1,114 @@
+=============joins==========
+create table Employee
+( Empid int not null ,
+name varchar(255),
+gender varchar(255),
+salary int,
+age int,
+
+);
+
+create table EmpDept
+( Deptid int not null ,
+EmpId int,
+Department varchar(255),
+City varchar(255),
+pincode int,
+
+);
+
+select * from Employee
+select * from EmpDept
+
+
+
+
+
+insert into Employee (Empid,name,Gender,Salary,Age) values (101,'akash','m',24000,24);
+insert into Employee (Empid,name,Gender,Salary,Age) values (102,'ashu','m',22000,24);
+insert into Employee (Empid,name,Gender,Salary,Age) values (104,'anju','f',14000,18);
+insert into Employee (Empid,name,Gender,Salary,Age) values (105,'sakshi','f',14000,21);
+insert into Employee (Empid,name,Gender,Salary,Age) values (106,'rahul','m',41000,27);
+insert into Employee (Empid,name,Gender,Salary,Age) values(109,'gaurab','m',12000,17);
+insert into Employee (Empid,name,Gender,Salary,Age)  values(110,'nikki','f',15000,20);
+
+insert into EmpDept (Deptid,Empid,Department,City,pincode) values (1,106,'sales','vilad',111342);
+insert into EmpDept (Deptid,Empid,Department,City,pincode) values (2,107,'hr','assam',354234);
+insert into EmpDept (Deptid,Empid,Department,City,pincode) values (3,101,'it','mzp',396325);
+insert into EmpDept (Deptid,Empid,Department,City,pincode) values (4,110,'teachong','gujarat',321123);
+insert into EmpDept (Deptid,Empid,Department,City,pincode) values (5,108,'developer','delhi',231001);
+
+
+select * from Employee E1
+Inner Join EmpDept E2
+on E1.EmpId = E2.EmpId
+
+select * from Employee E1
+Left Join EmpDept E2
+on E1.EmpId = E2.EmpId
+
+select * from Employee E1
+Right Join EmpDept E2
+on E1.EmpId = E2.EmpId
+
+select * from Employee E1
+Full Join EmpDept E2
+on E1.EmpId = E2.EmpId
+
+select * from Employee 
+NATURAL join EmpDept; 
+
+=============================================================================
+
+update Dbtable set mobile=8960887634 , Age=12 Where name='ayush'; 
+update Dbtable set mobile=8090536338 , Age=25 Where name='ashu'; 
+update Dbtable set city='kanpur' , Age=20 Where id='4';
+update Dbtable set city='mirzapur' , Age=25 Where id='1';
+update Dbtable set address='prayagraj' , Age=18 Where id='3'; 
+update Dbtable set Age=20 Where id='6';
+update Dbtable set Age=19 Where id='7';
+update Dbtable set Age=16 Where id='8';
+update Dbtable set Age=21 Where id='9';
+update Dbtable set Age=17 Where id='10';
+delete from DbTable where id=5;
+
+select distinct city from DbTable;
+select distinct address from DbTable;
+
+select * from DbTable
+where city='mirzapur';
+
+select * from DbTable
+where city='lucknow' and address='prayagraj';
+
+select * from DbTable
+where city='lucknow' or address='mirzapur';
+
+
+select * from DbTable
+order by city;
+
+
+
+SELECT * FROM DbTable
+WHERE name LIKE 'a%';
+
+SELECT * FROM DbTable
+WHERE city IN ('lucknow', 'kanpur', 'prayagraj');
+
+SELECT * FROM DbTable
+WHERE Age BETWEEN 10 AND 20;
+
+drop table Dbtable2;
+
+SELECT City FROM DbTable
+UNION all
+SELECT state FROM Dbtable2
+ORDER BY City;
+
+SELECT COUNT(id), city
+FROM DbTable
+GROUP BY city
+HAVING COUNT(id) > 3;
+
+select * from DbTable;
