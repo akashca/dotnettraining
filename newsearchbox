@@ -1,0 +1,97 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication1.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title> </title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style3 {
+            width: 252px;
+            margin-left: 54px;
+        }
+    </style>
+<%--    <script language="javascript" type="text/javascript"></script>--%>
+</head>
+<body>
+    <h1> Search Box</h1> 
+   <form id="form1" runat="server" >
+      <table class="auto-style1">
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox1" runat="server" type="text" name="TextBox1" Width="145px"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" Text="search" type="SUBMIT" value=" Google Search " Width="74px" OnClick="Button1_Click" />
+                    </td>
+             
+                <td>&nbsp;</td>
+            </tr>
+             </table>
+                    <p>
+                    <asp:Label ID="Label1" runat="server" Text="This is Bing"></asp:Label> &nbsp;</p>
+                    <iframe id="IFrame1"  runat="server" height="100px" align="middle" scrolling="auto" class="auto-style3"> </iframe>
+                    
+                    <p>
+                    <asp:Label ID="Label2" runat="server" Text="This is google"></asp:Label> &nbsp;</p>
+                     <iframe id="IFrame2"  runat="server" height="100px" align="center" scrolling="auto" class="auto-style3" > </iframe>
+                    
+                     <p>
+                    <asp:Label ID="Label3" runat="server" Text="This is yahoo"></asp:Label>  &nbsp;
+                         <iframe id="IFrame3"  runat="server" height="100px" align="center" scrolling="auto" class="auto-style3" ></iframe>
+                    
+                     </p>
+                               
+                 </form>
+                 </body>
+                 </html>
+
+================================aspx.cs file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Collections;
+using AjaxControlToolkit;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web.UI.HtmlControls;
+
+namespace WebApplication1
+{
+    public partial class WebForm1 : Page
+    {
+       
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+           
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string keyword = Request.Form["TextBox1"];
+
+            HtmlControl frame1 = (HtmlControl)this.FindControl("IFrame1");
+            frame1.Visible = true;
+            frame1.Attributes["src"] = "https://www.google.com/search?q=" + keyword;
+            ////  frame1.Attributes["src"] = "https://www.javatpoint.com/";
+
+            //HtmlControl frame2 = (HtmlControl)this.FindControl("IFrame2");
+            //frame2.Visible = true;
+            //frame2.Attributes["src"] = "https://www.bing.com/search?q=" + keyword;
+
+
+            //HtmlControl frame3 = (HtmlControl)this.FindControl("IFrame3");
+            //frame3.Visible = true;
+            //frame3.Attributes["src"] = "https://duckduckgo.com/" + keyword;
+        }
+
+    } 
+}
