@@ -5,7 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-  
+  <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 23px;
+        }
+        #googleDiv
+        {
+            width: 50%;
+            float : left;
+            margin-right : 50px auto;
+        }
+
+        #YahooDiv
+        {
+            width: 60%;
+            float : left;
+              margin-left : 50px auto;
+        }
+       #BingDiv
+        {
+          margin-left : 0 auto;
+         float:left;
+        }
+    </style>
   
 </head>
 <body>
@@ -29,11 +54,20 @@
                     <td class="auto-style2"></td>
                 </tr>
             </table>
-            <div runat="server" id="googleDiv"></div>
-            <div runat="server" id="bingDiv"></div>
-            <div runat="server" id="yahooDiv"></div>
-                  
-            
+            < <table>
+                <tr>
+                    <td>
+                        <div runat="server" id="googleDiv"></div>
+                    </td>
+                    <td>
+                        <div runat="server" id="bingDiv"></div>
+                    </td>
+                     <td>
+                        <div runat="server" id="yahooDiv"></div>
+                    </td>
+                     
+                </tr>
+            </table>
         <p>
             &nbsp;</p>
         <p>
